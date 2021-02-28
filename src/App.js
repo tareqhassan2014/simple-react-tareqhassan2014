@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
+import Cart from './component/Cart/Cart';
+import MainPart from './component/MainPart/MainPart';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
+  const [player, setPlayer] = useState([]);
+
+  useEffect(() => {
+    fetch('https://api.mocki.io/v1/c1a86cbf')
+      .then(response => response.json())
+      .then(data => setPlayer(data))
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="container">
+        <MainPart player={player}></MainPart>
+      </div>
+      <Cart></Cart>
     </div>
   );
 }
