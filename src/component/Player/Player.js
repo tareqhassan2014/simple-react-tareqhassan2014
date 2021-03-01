@@ -1,8 +1,10 @@
 import React from 'react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
 
 const Player = (props) => {
-    const { name, img, auctionMoney, nationality, position, club, id } = props.player;
+    const { name, img, auctionMoney, nationality, position, club } = props.player;
 
     return (
         <div className="row">
@@ -10,8 +12,8 @@ const Player = (props) => {
                 <img src={img} className="card-img-top" alt="..." />
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <button className="btn btn-primary">Go somewhere</button>
+                    <p className="card-text"> Nationality: {nationality} <br /> Club: {club} <br /> Position: {position} <br /> Auction Money: {auctionMoney} Millions</p>
+                    <button onClick={() => props.handelAddPlayer(props.player)} className="btn btn-primary"><FontAwesomeIcon icon={faUserPlus} /> Add your team</button>
                 </div>
             </div>
         </div>
