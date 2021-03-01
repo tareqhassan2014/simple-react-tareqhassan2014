@@ -6,7 +6,7 @@ const Cart = (props) => {
   return (
     <div>
       <h2>Player Added: {cartPlayer.length}</h2>
-      <p> Total muction money: €{totalAuctionMoney} Millions</p>
+      <p> Total muction money: €{Math.round(totalAuctionMoney)} Millions</p>
       <h2>Players Name:</h2>
       <ul>
         {
